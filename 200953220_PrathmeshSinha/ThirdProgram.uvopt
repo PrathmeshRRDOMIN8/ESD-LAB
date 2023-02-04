@@ -217,13 +217,13 @@
       <FileType>2</FileType>
       <tvExp>0</tvExp>
       <Focus>0</Focus>
-      <ColumnNumber>25</ColumnNumber>
+      <ColumnNumber>18</ColumnNumber>
       <tvExpOptDlg>0</tvExpOptDlg>
       <TopLine>1</TopLine>
-      <CurrentLine>8</CurrentLine>
+      <CurrentLine>5</CurrentLine>
       <bDave2>0</bDave2>
-      <PathWithFileName>.\Lab1Q2.asm</PathWithFileName>
-      <FilenameWithoutPath>Lab1Q2.asm</FilenameWithoutPath>
+      <PathWithFileName>.\Lab1Q3.asm</PathWithFileName>
+      <FilenameWithoutPath>Lab1Q3.asm</FilenameWithoutPath>
       <RteFlg>0</RteFlg>
       <bShared>0</bShared>
     </File>

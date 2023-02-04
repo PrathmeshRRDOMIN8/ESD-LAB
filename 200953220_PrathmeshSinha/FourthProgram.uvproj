@@ -44,7 +44,7 @@
             <InvalidFlash>1</InvalidFlash>
           </TargetStatus>
           <OutputDirectory>.\</OutputDirectory>
-          <OutputName>SecondProgram</OutputName>
+          <OutputName>FourthProgram</OutputName>
           <CreateExecutable>1</CreateExecutable>
           <CreateLib>0</CreateLib>
           <CreateHexFile>0</CreateHexFile>
@@ -392,9 +392,9 @@
           <GroupName>Source Group 1</GroupName>
           <Files>
             <File>
-              <FileName>Lab1Q2.asm</FileName>
+              <FileName>Lab1Q4.asm</FileName>
               <FileType>2</FileType>
-              <FilePath>.\Lab1Q2.asm</FilePath>
+              <FilePath>.\Lab1Q4.asm</FilePath>
             </File>
           </Files>
         </Group>
