@@ -1,0 +1,157 @@
+
+
+
+ARM Macro Assembler    Page 1 
+
+
+    1 00000000                 AREA             RESET, DATA, READONLY
+    2 00000000                 EXPORT           __Vectors
+    3 00000000         
+    4 00000000         __Vectors
+    5 00000000 10000100        DCD              0x10000100  ;stack pointer valu
+                                                            e when stack is emp
+                                                            ty
+    6 00000004 00000000        DCD              Reset_Handler ; reset vector
+    7 00000008         
+    8 00000008                 ALIGN
+    9 00000008                 AREA             mycode, CODE, READONLY
+   10 00000000                 ENTRY
+   11 00000000                 EXPORT           Reset_Handler
+   12 00000000         
+   13 00000000         Reset_Handler
+   14 00000000 4808            LDR              R0,=N1
+   15 00000002 4909            LDR              R1,=N2
+   16 00000004 6803            LDR              R3,[R0]
+   17 00000006 680C            LDR              R4,[R1]
+   18 00000008 42A3    UP      CMP              R3,R4
+   19 0000000A D004            BEQ              EXIT
+   20 0000000C BF88 1B1B       SUBHI            R3,R4
+   21 00000010 BF38 1AE4       SUBLO            R4,R3
+   22 00000014 E7F8            B                UP
+   23 00000016 4A05    EXIT    LDR              R2,=RES
+   24 00000018 6013            STR              R3,[R2]
+   25 0000001A E7FE    STOP    B                STOP
+   26 0000001C 00000009 
+                       N1      DCD              0x9
+   27 00000020 00000003 
+                       N2      DCD              0x3
+   28 00000024 00000000 
+              00000000 
+              00000000         AREA             data, DATA, READWRITE
+   29 00000000 00000000 
+                       RES     DCD              0
+   30 00000004                 END
+Command Line: --debug --xref --cpu=Cortex-M3 --apcs=interwork --depend=Lab3Q2.d
+ -oLab3Q2.o -IC:\Keil\ARM\RV31\INC -IC:\Keil\ARM\CMSIS\Include -IC:\Keil\ARM\In
+c\NXP\LPC17xx --predefine="__EVAL SETA 1" --list=Lab3Q2.lst Lab3Q2.asm
+
+
+
+ARM Macro Assembler    Page 1 Alphabetic symbol ordering
+Relocatable symbols
+
+RESET 00000000
+
+Symbol: RESET
+   Definitions
+      At line 1 in file Lab3Q2.asm
+   Uses
+      None
+Comment: RESET unused
+__Vectors 00000000
+
+Symbol: __Vectors
+   Definitions
+      At line 4 in file Lab3Q2.asm
+   Uses
+      At line 2 in file Lab3Q2.asm
+Comment: __Vectors used once
+2 symbols
+
+
+
+ARM Macro Assembler    Page 1 Alphabetic symbol ordering
+Relocatable symbols
+
+EXIT 00000016
+
+Symbol: EXIT
+   Definitions
+      At line 23 in file Lab3Q2.asm
+   Uses
+      At line 19 in file Lab3Q2.asm
+Comment: EXIT used once
+N1 0000001C
+
+Symbol: N1
+   Definitions
+      At line 26 in file Lab3Q2.asm
+   Uses
+      At line 14 in file Lab3Q2.asm
+Comment: N1 used once
+N2 00000020
+
+Symbol: N2
+   Definitions
+      At line 27 in file Lab3Q2.asm
+   Uses
+      At line 15 in file Lab3Q2.asm
+Comment: N2 used once
+Reset_Handler 00000000
+
+Symbol: Reset_Handler
+   Definitions
+      At line 13 in file Lab3Q2.asm
+   Uses
+      At line 6 in file Lab3Q2.asm
+      At line 11 in file Lab3Q2.asm
+
+STOP 0000001A
+
+Symbol: STOP
+   Definitions
+      At line 25 in file Lab3Q2.asm
+   Uses
+      At line 25 in file Lab3Q2.asm
+Comment: STOP used once
+UP 00000008
+
+Symbol: UP
+   Definitions
+      At line 18 in file Lab3Q2.asm
+   Uses
+      At line 22 in file Lab3Q2.asm
+Comment: UP used once
+mycode 00000000
+
+Symbol: mycode
+   Definitions
+      At line 9 in file Lab3Q2.asm
+   Uses
+      None
+Comment: mycode unused
+7 symbols
+
+
+
+ARM Macro Assembler    Page 1 Alphabetic symbol ordering
+Relocatable symbols
+
+RES 00000000
+
+Symbol: RES
+   Definitions
+      At line 29 in file Lab3Q2.asm
+   Uses
+      At line 23 in file Lab3Q2.asm
+Comment: RES used once
+data 00000000
+
+Symbol: data
+   Definitions
+      At line 28 in file Lab3Q2.asm
+   Uses
+      None
+Comment: data unused
+2 symbols
+344 symbols in table
