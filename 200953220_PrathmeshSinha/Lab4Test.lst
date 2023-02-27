@@ -1,0 +1,163 @@
+
+
+
+ARM Macro Assembler    Page 1 
+
+
+    1 00000000                 AREA             RESET, DATA, READONLY
+    2 00000000                 EXPORT           __Vectors
+    3 00000000         
+    4 00000000         __Vectors
+    5 00000000 10000100        DCD              0x10000100  ;stack pointer valu
+                                                            e when stack is emp
+                                                            ty
+    6 00000004 00000000        DCD              Reset_Handler ; reset vector
+    7 00000008         
+    8 00000008                 ALIGN
+    9 00000008                 AREA             mycode, CODE, READONLY
+   10 00000000                 ENTRY
+   11 00000000                 EXPORT           Reset_Handler
+   12 00000000         
+   13 00000000         Reset_Handler
+   14 00000000 480D            LDR              R0,= num
+   15 00000002 4B0E            LDR              R3,= res
+   16 00000004 7801            LDRB             R1,[R0]     ; load hex number i
+                                                            nto R1 only last tw
+                                                            o digits from LSB
+   17 00000006 F001 020F       AND              R2,R1,#0x0F ; mask LSB 4 bits f
+                                                            or eg. 0x000000F2 ,
+                                                             we get 0x00000002 
+                                                            in R2, to get a dig
+                                                            it at a time.
+   18 0000000A 2A09            CMP              R2,#09      ; compare with digi
+                                                            t 9
+   19 0000000C D301            BLO              DOWN        ; if it is lower th
+                                                            an 9
+   20 0000000E F102 0207       ADD              R2,#0x7     ; else add 37 to th
+                                                            at number
+   21 00000012 F102 0230 
+                       DOWN    ADD              R2,#0x30    ; add 30H to the nu
+                                                            mber
+   22 00000016 F803 2B04       STRB             R2,[R3],#4
+   23 0000001A F001 04F0       AND              R4, R1, #0xF0
+   24 0000001E EA4F 1414       LSR              R4,#4
+   25 00000022 2C09            CMP              R4, #0x09
+   26 00000024 D301            BLO              DOWN1
+   27 00000026 F104 0407       ADD              R4, #0x7
+   28 0000002A F104 0430 
+                       DOWN1   ADD              R4, #0x30
+   29 0000002E 701C            STRB             R4,[R3]
+   30 00000030 E7FE    STOP    B                STOP
+   31 00000032 00 00 0000003A 
+                       num     DCD              0x3A
+   32 00000038 00000000 
+              00000000         AREA             data, DATA, READWRITE
+   33 00000000 00000000 
+                       res     DCD              0
+   34 00000004                 END
+Command Line: --debug --xref --cpu=Cortex-M3 --apcs=interwork --depend=Lab4Test
+.d -oLab4Test.o -IC:\Keil\ARM\RV31\INC -IC:\Keil\ARM\CMSIS\Include -IC:\Keil\AR
+M\Inc\NXP\LPC17xx --predefine="__EVAL SETA 1" --list=Lab4Test.lst Lab4Test.asm
+
+
+
+ARM Macro Assembler    Page 1 Alphabetic symbol ordering
+Relocatable symbols
+
+RESET 00000000
+
+Symbol: RESET
+   Definitions
+      At line 1 in file Lab4Test.asm
+   Uses
+      None
+Comment: RESET unused
+__Vectors 00000000
+
+Symbol: __Vectors
+   Definitions
+      At line 4 in file Lab4Test.asm
+   Uses
+      At line 2 in file Lab4Test.asm
+Comment: __Vectors used once
+2 symbols
+
+
+
+ARM Macro Assembler    Page 1 Alphabetic symbol ordering
+Relocatable symbols
+
+DOWN 00000012
+
+Symbol: DOWN
+   Definitions
+      At line 21 in file Lab4Test.asm
+   Uses
+      At line 19 in file Lab4Test.asm
+Comment: DOWN used once
+DOWN1 0000002A
+
+Symbol: DOWN1
+   Definitions
+      At line 28 in file Lab4Test.asm
+   Uses
+      At line 26 in file Lab4Test.asm
+Comment: DOWN1 used once
+Reset_Handler 00000000
+
+Symbol: Reset_Handler
+   Definitions
+      At line 13 in file Lab4Test.asm
+   Uses
+      At line 6 in file Lab4Test.asm
+      At line 11 in file Lab4Test.asm
+
+STOP 00000030
+
+Symbol: STOP
+   Definitions
+      At line 30 in file Lab4Test.asm
+   Uses
+      At line 30 in file Lab4Test.asm
+Comment: STOP used once
+mycode 00000000
+
+Symbol: mycode
+   Definitions
+      At line 9 in file Lab4Test.asm
+   Uses
+      None
+Comment: mycode unused
+num 00000034
+
+Symbol: num
+   Definitions
+      At line 31 in file Lab4Test.asm
+   Uses
+      At line 14 in file Lab4Test.asm
+Comment: num used once
+6 symbols
+
+
+
+ARM Macro Assembler    Page 1 Alphabetic symbol ordering
+Relocatable symbols
+
+data 00000000
+
+Symbol: data
+   Definitions
+      At line 32 in file Lab4Test.asm
+   Uses
+      None
+Comment: data unused
+res 00000000
+
+Symbol: res
+   Definitions
+      At line 33 in file Lab4Test.asm
+   Uses
+      At line 15 in file Lab4Test.asm
+Comment: res used once
+2 symbols
+343 symbols in table
