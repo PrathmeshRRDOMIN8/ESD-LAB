@@ -1,0 +1,170 @@
+
+
+
+ARM Macro Assembler    Page 1 
+
+
+    1 00000000                 AREA             RESET, DATA, READONLY
+    2 00000000                 EXPORT           __Vectors
+    3 00000000         
+    4 00000000         __Vectors
+    5 00000000 10001000        DCD              0x10001000
+    6 00000004 00000000        DCD              Reset_Handler
+    7 00000008                 ALIGN
+    8 00000008                 AREA             mycode, CODE, READONLY
+    9 00000000                 ENTRY
+   10 00000000                 EXPORT           Reset_Handler
+   11 00000000         
+   12 00000000         Reset_Handler
+   13 00000000 4814            LDR              R0,= SRC
+   14 00000002 4915            LDR              R1,= DST
+   15 00000004 6809            LDR              R1,[R1]
+   16 00000006 F04F 020A       MOV              R2, #10
+   17 0000000A 4C14            LDR              R4,= N
+   18 0000000C 6825            LDR              R5, [R4]
+   19 0000000E F850 3B04 
+                       LOOP    LDR              R3, [R0], #4
+   20 00000012 EA93 0F05       TEQ              R3, R5
+   21 00000016 D004            BEQ              EXIT
+   22 00000018 F1A2 0201       SUB              R2, #1
+   23 0000001C F092 0F00       TEQ              R2, #0
+   24 00000020 D1F5            BNE              LOOP
+   25 00000022         
+   26 00000022 F101 0101 
+                       EXIT    ADD              R1,#1
+   27 00000026 E7FE    STOP    B                STOP
+   28 00000028         
+   29 00000028 EEEEDDDD 
+                       N       DCD              0xEEEEDDDD
+   30 0000002C 14256363 
+              1343F241 
+              FFFFFFFF 
+              EEEEDDDD 
+              CCCCBBBB 
+              14256363 
+              1343F241 
+              FFFFFFFF 
+              EEEEDDDD 
+              CCCCBBBB SRC     DCD              0x14256363, 0x1343F241, 0xFFFFF
+FFF, 0xEEEEDDDD, 0xCCCCBBBB, 0x14256363, 0x1343F241, 0xFFFFFFFF, 0xEEEEDDDD, 0x
+CCCCBBBB
+   31 00000054 00000000 
+              00000000 
+              00000000         AREA             DATASEG, DATA, READWRITE
+   32 00000000 00000000 
+                       DST     DCD              0
+   33 00000004                 END
+Command Line: --debug --xref --cpu=Cortex-M3 --apcs=interwork --depend=Lab5Q3.d
+ -oLab5Q3.o -IC:\Keil\ARM\RV31\INC -IC:\Keil\ARM\CMSIS\Include -IC:\Keil\ARM\In
+c\NXP\LPC17xx --predefine="__EVAL SETA 1" --list=Lab5Q3.lst Lab5Q3.asm
+
+
+
+ARM Macro Assembler    Page 1 Alphabetic symbol ordering
+Relocatable symbols
+
+RESET 00000000
+
+Symbol: RESET
+   Definitions
+      At line 1 in file Lab5Q3.asm
+   Uses
+      None
+Comment: RESET unused
+__Vectors 00000000
+
+Symbol: __Vectors
+   Definitions
+      At line 4 in file Lab5Q3.asm
+   Uses
+      At line 2 in file Lab5Q3.asm
+Comment: __Vectors used once
+2 symbols
+
+
+
+ARM Macro Assembler    Page 1 Alphabetic symbol ordering
+Relocatable symbols
+
+EXIT 00000022
+
+Symbol: EXIT
+   Definitions
+      At line 26 in file Lab5Q3.asm
+   Uses
+      At line 21 in file Lab5Q3.asm
+Comment: EXIT used once
+LOOP 0000000E
+
+Symbol: LOOP
+   Definitions
+      At line 19 in file Lab5Q3.asm
+   Uses
+      At line 24 in file Lab5Q3.asm
+Comment: LOOP used once
+N 00000028
+
+Symbol: N
+   Definitions
+      At line 29 in file Lab5Q3.asm
+   Uses
+      At line 17 in file Lab5Q3.asm
+Comment: N used once
+Reset_Handler 00000000
+
+Symbol: Reset_Handler
+   Definitions
+      At line 12 in file Lab5Q3.asm
+   Uses
+      At line 6 in file Lab5Q3.asm
+      At line 10 in file Lab5Q3.asm
+
+SRC 0000002C
+
+Symbol: SRC
+   Definitions
+      At line 30 in file Lab5Q3.asm
+   Uses
+      At line 13 in file Lab5Q3.asm
+Comment: SRC used once
+STOP 00000026
+
+Symbol: STOP
+   Definitions
+      At line 27 in file Lab5Q3.asm
+   Uses
+      At line 27 in file Lab5Q3.asm
+Comment: STOP used once
+mycode 00000000
+
+Symbol: mycode
+   Definitions
+      At line 8 in file Lab5Q3.asm
+   Uses
+      None
+Comment: mycode unused
+7 symbols
+
+
+
+ARM Macro Assembler    Page 1 Alphabetic symbol ordering
+Relocatable symbols
+
+DATASEG 00000000
+
+Symbol: DATASEG
+   Definitions
+      At line 31 in file Lab5Q3.asm
+   Uses
+      None
+Comment: DATASEG unused
+DST 00000000
+
+Symbol: DST
+   Definitions
+      At line 32 in file Lab5Q3.asm
+   Uses
+      At line 14 in file Lab5Q3.asm
+Comment: DST used once
+2 symbols
+344 symbols in table

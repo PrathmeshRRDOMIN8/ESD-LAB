@@ -1,0 +1,25 @@
+	LDR R0, =SRC; Reading input
+	LDR R1, =DST ; Storing output
+	MOV R3, #10 ; Counter as 10
+	MOV R9, #0 ; R9 = i;
+	SUB R4,R3,#1
+OUTER CMP R9,R4 ; if(i<n-1)
+	BLO EXIT
+	MOV R8,#1 ; R8 = min_index
+	ADD R7,R8,#1 ; R7 = j, j=i+1
+INNER CMP R7,R3
+	 BLO SWAP
+	 CMP [R0,R7],[R0,R8]
+	 ADDHI R7,#1
+	 BHI INNER
+	 MOV R8,R7
+	 ADD R7,#1
+	 B INNER
+SWAP LDR R5,[R0,R8]
+	LDR R6, [R0,R9]
+	STR R6,[R0,R8]
+	STR R5,[R0,R9]
+    ADD R9,#1
+	B OUTER
+EXIT
+STOP B STOP
